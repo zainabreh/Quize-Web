@@ -1,19 +1,22 @@
 import React from 'react'
+import QuesAnsContainer from './Components/QuesAnsContainer'
+import PricesContainer from './Components/PricesContainer'
+import './App.css'
 
 const App = () => {
   return (
     <>
+    <div className="mainBody">
+
       <div className="left">
-        <div className="QsContainer">
-            <h1>Question and Answer</h1>
-        </div>
+       <QuesAnsContainer/>
       </div>
 
       <div className="right">
-        <div className="pricesContainer">
-          <h1>Prices</h1>
-        </div>
+       <PricesContainer/>
       </div>
+
+    </div>
     </>
   )
 }

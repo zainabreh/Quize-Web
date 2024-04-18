@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.mainBody{
+    height: 100vh;
+    background-color: #020230;
+    color: white;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+.left{
+    width: 75%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0),#020230), url('./Assets/bg.jpg');
+}
+.QsContainer{
+
+}
+.right{
+    width: 25%;
+    border: 2px solid rgb(0, 0, 0);
+}
+.pricesContainer{
+}
+.moneyList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.moneyListItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    margin: 2px;
+}
+.moneyListID{
+    font-size: 18px;
+    text-align: left;
+    margin-right: 5px;
+    font-weight: 100;
+}
+.moneyListPrice{
+    text-align: right;
+    font-size: 19px;
+    font-weight: 200;
+}

@@ -2,9 +2,9 @@ import React from 'react'
 
 const QuesAnsContainer = () => {
   return (
-    <div>
-      
-    </div>
+    <div className="QsContainer">
+    <h1>Question and Answer</h1>
+</div>
   )
 }
 
