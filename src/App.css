@@ -8,7 +8,6 @@
     background-color: #020230;
     color: white;
     display: flex;
-    /* align-items: center; */
     justify-content: space-between;
 }
 .left{
@@ -18,33 +17,46 @@
 .QsContainer{
 
 }
+.counter{
+    color: white;
+    border: 3px solid white;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border-radius: 50%;
+}
 .right{
     width: 25%;
-    border: 2px solid rgb(0, 0, 0);
 }
 .pricesContainer{
+    height: 100%;
 }
 .moneyList{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    padding: 15px;
+    height: 100%;
 }
 .moneyListItem{
     display: flex;
     align-items: center;
-    justify-content: space-around;
     list-style: none;
-    margin: 2px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+}
+.moneyListItem.active{
+    background-color: aqua;
 }
 .moneyListID{
-    font-size: 18px;
-    text-align: left;
-    margin-right: 5px;
+    margin-left: 20px;
+    font-size: 20px;
     font-weight: 100;
+    width: 30%;
 }
 .moneyListPrice{
-    text-align: right;
-    font-size: 19px;
+    font-size: 21px;
     font-weight: 200;
 }

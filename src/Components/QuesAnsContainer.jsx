@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
+import Counter from "./Counter";
 
 const QuesAnsContainer = () => {
-  return (
-    <div className="QsContainer">
-    <h1>Question and Answer</h1>
-</div>
-  )
-}
+  return <div className="QsContainer">
+    <Counter/>
+  </div>;
+};
 
-export default QuesAnsContainer
+export default QuesAnsContainer;
