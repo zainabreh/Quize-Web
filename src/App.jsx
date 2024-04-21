@@ -1,9 +1,124 @@
-import React from 'react'
-import QuesAnsContainer from './Components/QuesAnsContainer'
-import PricesContainer from './Components/PricesContainer'
-import './App.css'
+import React, { useState } from "react";
+import QuesAnsContainer from "./Components/QuesAnsContainer";
+import PricesContainer from "./Components/PricesContainer";
+import "./App.css";
 
 const App = () => {
+  const [qsNumber, setQsNumber] = useState(1);
+  const [time,setTime] = useState(false);
+
+  const QuestionsData = [
+    {
+      id: 1,
+      question: "What is thought to be the world’s oldest volcano?",
+      answers: [
+        {
+          ans: "Mauna Loa",
+          correct: false,
+        },
+        {
+          ans: "Mount Etna",
+          correct: true,
+        },
+        {
+          ans: "Krakatoa",
+          correct: false,
+        },
+        {
+          ans: "Mount Unzen",
+          correct: false,
+        },
+      ],
+    },
+    {
+      id: 2,
+      question: "Which of these countries is the most densely populated?",
+      answers: [
+        {
+          ans: "Hong Kong",
+          correct: false,
+        },
+        {
+          ans: "Japan",
+          correct: false,
+        },
+        {
+          ans: "Singapore",
+          correct: false,
+        },
+        {
+          ans: "Monaco",
+          correct: true,
+        },
+      ],
+    },
+    {
+      id: 3,
+      question: "What is the chemical symbol for Gold?",
+      answers: [
+        {
+          ans: "Au",
+          correct: true,
+        },
+        {
+          ans: "Gd",
+          correct: false,
+        },
+        {
+          ans: "Go",
+          correct: false,
+        },
+        {
+          ans: "Ag",
+          correct: false,
+        },
+      ],
+    },
+    {
+      id: 4,
+      question: "Who painted the 'Mona Lisa'?",
+      answers: [
+        {
+          ans: "Michelangelo",
+          correct: false,
+        },
+        {
+          ans: "eonardo da Vinci",
+          correct: true,
+        },
+        {
+          ans: "Raphael",
+          correct: false,
+        },
+        {
+          ans: "Caravaggio",
+          correct: false,
+        },
+      ],
+    },
+    {
+      id: 5,
+      question: "Who invented the lightbulb?",
+      answers: [
+        {
+          ans: "Albert Einstein",
+          correct: false,
+        },
+        {
+          ans: " Nikola Tesla",
+          correct: false,
+        },
+        {
+          ans: "Thomas Edison",
+          correct: true,
+        },
+        {
+          ans: "Alexander Graham Bell",
+          correct: false,
+        },
+      ],
+    },
+  ];
 
   const Prices = [
     {
@@ -70,19 +185,25 @@ const App = () => {
 
   return (
     <>
-    <div className="mainBody">
+      <div className="mainBody">
+        
+        <div className="left">
+          <QuesAnsContainer
+          QuestionsData={QuestionsData} 
+          qsNumber={qsNumber}
+          setQsNumber={setQsNumber}
+          time={time}
+          setTime={setTime}
+          Prices={Prices}
+          />
+        </div>
 
-      <div className="left">
-       <QuesAnsContainer/>
+        <div className="right">
+          <PricesContainer Prices={Prices} qsNumber={qsNumber}/>
+        </div>
       </div>
-
-      <div className="right">
-       <PricesContainer Prices={Prices}/>
-      </div>
-
-    </div>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
