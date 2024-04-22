@@ -1,10 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import Answercorrect from "../Assets/correct.mp3";
+import Answerwrong from "../Assets/wrong.mp3";
+import PlaySound from "../Assets/play.mp3";
+import useSound from "use-sound";
 
 const Questions = ({QuestionsData,qsNumber,setQsNumber,setTime}) => {
 
   const [Question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [ansBlinking,setAnsBlinking] = useState('option')
+  const[playCorrectSound] = useSound(Answercorrect);
+  const[playWrongSound] = useSound(Answerwrong)
+  const[play] = useSound(PlaySound)
+
+  useEffect(()=>{
+    play();
+  },[play])
 
   useEffect(()=>{
     setQuestion(QuestionsData[qsNumber-1])
@@ -12,20 +23,23 @@ const Questions = ({QuestionsData,qsNumber,setQsNumber,setTime}) => {
 
   const handleClick = (a) => {
     setSelectedAnswer(a);
-
-    setTimeout(()=>{
-      setAnsBlinking(a.correct ? 'option correct' : 'option wrong')
-    },3000)
-
+    setAnsBlinking(a.correct ? 'option correct' : 'option wrong');
     setTimeout(()=>{
       if(a.correct){
-        setQsNumber((p)=>p+1);
-        setSelectedAnswer(null);
+        playCorrectSound()
+        setTimeout(()=>{
+          setQsNumber((p)=>p+1);
+          setSelectedAnswer(null);
+          setAnsBlinking('option');
+        },2000)
       }
       else{
-        setTime(true);
+        playWrongSound();
+        setTimeout(()=>{
+          setTime(true);
+        },2000)
       }
-    },6000)
+    },3000)
   }
 
   return (
@@ -41,9 +55,6 @@ const Questions = ({QuestionsData,qsNumber,setQsNumber,setTime}) => {
           <span className={selectedAnswer === a ? ansBlinking : "option"} onClick={()=>handleClick(a)}>{a.ans}</span>
         ))
       }
-        {/* <span className='option'>India</span>
-        <span className='option'>America</span>
-        <span className='option'>Iran</span> */}
     </div>
 
     </div>

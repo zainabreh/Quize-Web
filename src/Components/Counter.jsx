@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-const Counter = (qsNumber,setTime) => {
-  const [count,setCount] = useState(3)
+const Counter = ({setTime,qsNumber}) => {
+  const [count,setCount] = useState(30)
 
   useEffect(()=>{
     if(count === 0) return setTime(true);
@@ -13,7 +13,7 @@ const Counter = (qsNumber,setTime) => {
   },[setTime,count]);
 
   useEffect(()=>{
-    setCount(3);
+    setCount(30);
   },[qsNumber]);
 
   return count

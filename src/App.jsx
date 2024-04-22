@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import QuesAnsContainer from "./Components/QuesAnsContainer";
 import PricesContainer from "./Components/PricesContainer";
+import UserEntrance from "./Components/UserEntrance";
 import "./App.css";
 
 const App = () => {
+  const [username, setUserName] = useState(null);
   const [qsNumber, setQsNumber] = useState(1);
-  const [time,setTime] = useState(false);
+  const [time, setTime] = useState(false);
 
   const QuestionsData = [
     {
@@ -186,21 +188,26 @@ const App = () => {
   return (
     <>
       <div className="mainBody">
-        
-        <div className="left">
-          <QuesAnsContainer
-          QuestionsData={QuestionsData} 
-          qsNumber={qsNumber}
-          setQsNumber={setQsNumber}
-          time={time}
-          setTime={setTime}
-          Prices={Prices}
-          />
-        </div>
+        {username ? (
+          <>
+            <div className="left">
+              <QuesAnsContainer
+                QuestionsData={QuestionsData}
+                qsNumber={qsNumber}
+                setQsNumber={setQsNumber}
+                time={time}
+                setTime={setTime}
+                Prices={Prices}
+              />
+            </div>
 
-        <div className="right">
-          <PricesContainer Prices={Prices} qsNumber={qsNumber}/>
-        </div>
+            <div className="right">
+              <PricesContainer Prices={Prices} qsNumber={qsNumber} />
+            </div>
+          </>
+        ) : (
+          <UserEntrance setUserName={setUserName} />
+        )}
       </div>
     </>
   );
